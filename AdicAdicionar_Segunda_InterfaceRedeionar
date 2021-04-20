@@ -1,0 +1,3 @@
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "vm-prod-brz-rg" -Name "ESPIRITOSANTO02"
+Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id "/subscriptions/c213277d-5164-4504-882a-018c41a90d0f/resourceGroups/vm-prod-brz-rg/providers/Microsoft.Network/networkInterfaces/ESPIRIOSANTO02-NIC" -Primary
+Update-AzureRmVM -VM $VirtualMachine 
