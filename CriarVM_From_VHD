@@ -1,0 +1,9 @@
+$location = "East US2"
+$rgName = "servidores-dev-useast2-rg"
+$vmName = "US-DTC0201011"
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id (Get-AzureRmNetworkInterface -ResourceGroupName "servidores-dev-useast2-rg" -Name "US-DTC0201011").Id
+$osDiskUri = "https://devstlrsuseast2data002.blob.core.windows.net/vhd/copied--DEV-SDA.vhd"
+$osDiskName = "copied--DEV-SDA.vhd"
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Linux
+New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
