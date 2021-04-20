@@ -1,0 +1,3 @@
+Get-AzureRMVM -ResourceGroupName "vm-prod-brz-rg" -Name "ESPIRITOSANTO02" | 
+  Remove-AzureRmVMNetworkInterface -Id "/subscriptions/c213277d-5164-4504-882a-018c41a90d0f/resourceGroups/vm-prod-brz-rg/providers/Microsoft.Network/networkInterfaces/ESPIRITOSANTO020bafbe0d-bbcd-410a-86a0-7aa80541e414" |
+  Update-AzureRmVM
